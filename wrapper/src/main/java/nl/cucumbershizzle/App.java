@@ -1,8 +1,7 @@
 package nl.cucumbershizzle;
 
 /**
- * Hello world!
- *
+ * Spielerij
  */
 public class App 
 {
