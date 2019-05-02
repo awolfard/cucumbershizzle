@@ -61,6 +61,18 @@ public class CZucumber {
 		}
 	}
 	
+	public static void assertNull(Object real) {
+		if (real != null) {
+			throw new RuntimeException("Oeps");
+		}
+	}
+	
+	public static void assertFalse(boolean real) {
+		if (real != false) {
+			throw new RuntimeException("Oeps");
+		}
+	}
+	
 	public static void run(Class<?>...features) {
 		for (Class<?> clazz : features) {
 			try {

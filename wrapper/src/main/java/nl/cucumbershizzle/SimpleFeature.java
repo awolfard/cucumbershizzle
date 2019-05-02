@@ -4,10 +4,13 @@ import static nl.cucumbershizzle.CZucumber.Given;
 import static nl.cucumbershizzle.CZucumber.When;
 import static nl.cucumbershizzle.CZucumber.Then;
 import static nl.cucumbershizzle.CZucumber.assertEquals;
+import static nl.cucumbershizzle.CZucumber.assertNull;
+import static nl.cucumbershizzle.CZucumber.assertFalse;
 
 public class SimpleFeature extends AbstractCZucumberFeature {
 	
 	private String username;
+	private boolean loggedIn;
 	
 	@Komkommer
 	public void testje() {
@@ -40,5 +43,22 @@ public class SimpleFeature extends AbstractCZucumberFeature {
         });
 	}
 
+	@Komkommer
+	public void logout() {
+		given("^Een ingelogde gebruiker$", () -> {
+        	username = "Henk";
+        	loggedIn = true;
+        });
+		when("^Gebruiker logt uit$", () -> {
+        	username = null;
+        	loggedIn = false;
+        });
+		then("^Gebruikersnaam is null$", () -> {
+        	assertNull(username);
+        });
+		and("^Gebruiker is uitgelogd$", () -> {
+        	assertFalse(loggedIn);
+        });
+	}
 
 }
