@@ -23,6 +23,11 @@ public class SimpleFeature extends AbstractCZucumberFeature {
 	}
 	
 	@Komkommer
+	/**
+	 * Deze test methode gaat via methodes op de base class.
+	 * Bij de given wordt een wrapper gebruikt waardoor het mogelijk wordt
+	 * om de juiste data in te laden aan de hand van de test methode naam.
+	 */
 	public void testje2() {
 		given("^Een ingelogde gebruiker$", () -> {
         	username = "Henk";
